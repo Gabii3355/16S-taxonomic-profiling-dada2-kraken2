@@ -34,26 +34,30 @@ Raw FASTQ files are not included in this repository due to their size.
 ## Workflow
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["Paired-end Illumina FASTQ<br/>SRR13569534"] --> B["Sequence quality assessment"]
     B --> C["Trimming and filtering"]
 
-    C --> D["DADA2"]
-    D --> E["Error modelling<br/>and denoising"]
+    C --> D["DADA2 workflow"]
+    D --> E["Error modelling and denoising"]
     E --> F["Paired-read merging"]
     F --> G["Chimera removal"]
     G --> H["ASV inference"]
     H --> I["Taxonomic assignment"]
-    I --> J["Krona visualization"]
+    I --> J["DADA2 Krona visualization"]
 
-    C --> K["Kraken2"]
-    K --> L["k-mer-based<br/>classification"]
-    L --> M["Bracken abundance<br/>estimation"]
-    M --> N["Krona visualization"]
+    C --> K["Kraken2 workflow"]
+    K --> L["k-mer-based classification"]
+    L --> M["Bracken abundance estimation"]
+    M --> N["Kraken2 Krona visualization"]
 
-    J --> O["Comparison of<br/>taxonomic profiles"]
+    J --> O["Comparison of taxonomic profiles"]
     N --> O
 ```
+## Quality filtering
+
+The forward reads maintained relatively high quality across most of their
+length, while the reverse reads showed a stronger decline in quality.
 ## Quality filtering
 
 The forward reads maintained relatively high quality across most of their
@@ -74,6 +78,21 @@ After filtering, 34,553 of 67,311 read pairs were retained, corresponding
 to approximately 51% of the original data. 
 
 ## Main results
+### DADA2 taxonomic profile at class level
+
+![DADA2 class-level taxonomic abundance](results/krona/dada2_class_level.png)
+
+### DADA2 taxonomic profile at genus level
+
+![DADA2 genus-level taxonomic abundance](results/krona/dada2_genus_level.png)
+
+### Kraken2 taxonomic profile at class level
+
+![Kraken2 class-level taxonomic abundance](results/krona/kraken2_class_level.png)
+
+### Kraken2 taxonomic profile at genus level
+
+![Kraken2 genus-level taxonomic abundance](results/krona/kraken2_genus_level.png)
 
 Both methods identified Firmicutes/Clostridia and
 Bacteroidetes/Bacteroidia as the dominant groups.
