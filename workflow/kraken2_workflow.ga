@@ -1,0 +1,232 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "",
+    "comments": [],
+    "format-version": "0.1",
+    "name": "Kraken2: SRR13569534",
+    "report": {
+        "markdown": "\n# Workflow Execution Report\n\n## Workflow Inputs\n```galaxy\ninvocation_inputs()\n```\n\n## Workflow Outputs\n```galaxy\ninvocation_outputs()\n```\n\n## Workflow\n```galaxy\nworkflow_display()\n```\n"
+    },
+    "steps": {
+        "0": {
+            "annotation": "collection of paired reads",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "collection of paired reads",
+                    "name": "Provide data"
+                }
+            ],
+            "label": "Provide data",
+            "name": "Input dataset collection",
+            "outputs": [],
+            "position": {
+                "left": 0,
+                "top": 163.16160835547532
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"format\": [\"fastq.gz\"], \"tag\": null, \"collection_type\": \"list:paired\", \"fields\": null, \"column_definitions\": null}",
+            "tool_version": null,
+            "type": "data_collection_input",
+            "uuid": "b786d019-13a3-42b0-9da4-e8b08ab40c6a",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/dada2_plotqualityprofile/dada2_plotQualityProfile/1.34.0+galaxy0",
+            "errors": null,
+            "id": 1,
+            "input_connections": {
+                "batch_cond|paired_cond|reads": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "dada2: plotQualityProfile",
+            "outputs": [
+                {
+                    "name": "output_fwd",
+                    "type": "pdf"
+                },
+                {
+                    "name": "output_rev",
+                    "type": "pdf"
+                }
+            ],
+            "position": {
+                "left": 290,
+                "top": 3.161608355475323
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/dada2_plotqualityprofile/dada2_plotQualityProfile/1.34.0+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "4e469b758915",
+                "name": "dada2_plotqualityprofile",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"input\", \"batch_cond\": {\"batch_select\": \"joint\", \"__current_case__\": 0, \"paired_cond\": {\"paired_select\": \"paired\", \"__current_case__\": 0, \"reads\": {\"__class__\": \"ConnectedValue\"}}, \"aggregate\": false}, \"chromInfo\": \"/opt/galaxy/tool-data/shared/ucsc/chrom/?.len\", \"n\": \"500000\", \"__page__\": 0, \"__rerun_remap_job_id__\": null}",
+            "tool_uuid": null,
+            "tool_version": "1.34.0+galaxy0",
+            "type": "tool",
+            "uuid": "c7185ce3-7643-44c3-9933-7a7531e3dbae",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "2": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/dada2_filterandtrim/dada2_filterAndTrim/1.34.0+galaxy0",
+            "errors": null,
+            "id": 2,
+            "input_connections": {
+                "paired_cond|reads": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool dada2: filterAndTrim",
+                    "name": "paired_cond"
+                }
+            ],
+            "label": null,
+            "name": "dada2: filterAndTrim",
+            "outputs": [
+                {
+                    "name": "paired_output",
+                    "type": "input"
+                },
+                {
+                    "name": "outtab",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 300,
+                "top": 243.16160835547532
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/dada2_filterandtrim/dada2_filterAndTrim/1.34.0+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "00e0347751b1",
+                "name": "dada2_filterandtrim",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"filter\": {\"maxLen\": null, \"minLen\": \"200\", \"maxN\": \"0\", \"minQ\": \"0\", \"maxEE\": \"2\"}, \"orientFwd\": \"\", \"output_statistics\": true, \"paired_cond\": {\"paired_select\": \"paired\", \"__current_case__\": 0, \"reads\": {\"__class__\": \"ConnectedValue\"}}, \"rmPhiX\": true, \"rmlowcomplex\": \"0\", \"seprev_cond\": {\"seprev_select\": \"yes\", \"__current_case__\": 1, \"trim\": {\"truncQ\": \"2\", \"trimLeft\": \"0\", \"trimRight\": \"0\", \"truncLen\": \"220\"}, \"filter\": {\"maxLen\": null, \"minLen\": \"200\", \"maxN\": \"0\", \"minQ\": \"0\", \"maxEE\": \"3\"}}, \"trim\": {\"truncQ\": \"2\", \"trimLeft\": \"0\", \"trimRight\": \"0\", \"truncLen\": \"280\"}, \"__page__\": 0, \"__rerun_remap_job_id__\": null}",
+            "tool_uuid": null,
+            "tool_version": "1.34.0+galaxy0",
+            "type": "tool",
+            "uuid": "08ea12cc-8a5c-4bfe-8583-64fdda249ddd",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "3": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/dada2_plotqualityprofile/dada2_plotQualityProfile/1.34.0+galaxy0",
+            "errors": null,
+            "id": 3,
+            "input_connections": {
+                "batch_cond|paired_cond|reads": {
+                    "id": 2,
+                    "output_name": "paired_output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "dada2: plotQualityProfile",
+            "outputs": [
+                {
+                    "name": "output_fwd",
+                    "type": "pdf"
+                },
+                {
+                    "name": "output_rev",
+                    "type": "pdf"
+                }
+            ],
+            "position": {
+                "left": 544.6666564941406,
+                "top": 0
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/dada2_plotqualityprofile/dada2_plotQualityProfile/1.34.0+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "4e469b758915",
+                "name": "dada2_plotqualityprofile",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"__input_ext\": \"input\", \"batch_cond\": {\"batch_select\": \"joint\", \"__current_case__\": 0, \"paired_cond\": {\"paired_select\": \"paired\", \"__current_case__\": 0, \"reads\": {\"__class__\": \"ConnectedValue\"}}, \"aggregate\": false}, \"chromInfo\": \"/opt/galaxy/tool-data/shared/ucsc/chrom/?.len\", \"n\": \"500000\", \"__page__\": 0, \"__rerun_remap_job_id__\": null}",
+            "tool_uuid": null,
+            "tool_version": "1.34.0+galaxy0",
+            "type": "tool",
+            "uuid": "fcc6a0f7-e43c-4e51-8e1a-e6e2bf9d6f07",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "4": {
+            "annotation": "",
+            "content_id": "__UNZIP_COLLECTION__",
+            "errors": null,
+            "id": 4,
+            "input_connections": {
+                "input": {
+                    "id": 2,
+                    "output_name": "paired_output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Unzip collection",
+            "outputs": [
+                {
+                    "name": "forward",
+                    "type": "input"
+                },
+                {
+                    "name": "reverse",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 680,
+                "top": 253.16160835547532
+            },
+            "post_job_actions": {
+                "TagDatasetActionforward": {
+                    "action_arguments": {
+                        "tags": "name:forward"
+                    },
+                    "action_type": "TagDatasetAction",
+                    "output_name": "forward"
+                },
+                "TagDatasetActionreverse": {
+                    "action_arguments": {
+                        "tags": "name:reverse"
+                    },
+                    "action_type": "TagDatasetAction",
+                    "output_name": "reverse"
+                }
+            },
+            "tool_id": "__UNZIP_COLLECTION__",
+            "tool_state": "{\"input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": 0, \"__rerun_remap_job_id__\": null}",
+            "tool_uuid": null,
+            "tool_version": "1.0.0",
+            "type": "tool",
+            "uuid": "5e2b5dd6-19f3-4cb8-b25b-ef3c855e1017",
+            "when": null,
+            "workflow_outputs": []
+        }
+    },
+    "tags": [],
+    "uuid": "3fe9cc14-5665-4d79-a7df-8e8d4100bbab",
+    "version": 1
+}
