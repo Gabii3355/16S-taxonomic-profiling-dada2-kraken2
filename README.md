@@ -52,7 +52,7 @@ flowchart TD
 
     J --> O[Comparison of taxonomic profiles]
     N --> O
-
+```
 ## Quality filtering
 
 The forward reads maintained relatively high quality across most of their
@@ -71,7 +71,7 @@ length of 200 bp.
 
 After filtering, 34,553 of 67,311 read pairs were retained, corresponding
 to approximately 51% of the original data. 
-```
+
 ## Main results
 
 Both methods identified Firmicutes/Clostridia and
