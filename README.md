@@ -32,25 +32,26 @@ ASV-based and k-mer-based methods.
 Raw FASTQ files are not included in this repository due to their size.
 
 ## Workflow
+
 ```mermaid
-flowchart TD
-    A[Paired-end Illumina FASTQ<br>SRR13569534] --> B[Sequence quality assessment]
-    B --> C[Trimming and filtering]
+flowchart LR
+    A["Paired-end Illumina FASTQ<br/>SRR13569534"] --> B["Sequence quality assessment"]
+    B --> C["Trimming and filtering"]
 
-    C --> D[DADA2 workflow]
-    D --> E[Error modelling and denoising]
-    E --> F[Paired-read merging]
-    F --> G[Chimera removal]
-    G --> H[ASV inference]
-    H --> I[Taxonomic assignment]
-    I --> J[DADA2 Krona visualization]
+    C --> D["DADA2"]
+    D --> E["Error modelling<br/>and denoising"]
+    E --> F["Paired-read merging"]
+    F --> G["Chimera removal"]
+    G --> H["ASV inference"]
+    H --> I["Taxonomic assignment"]
+    I --> J["Krona visualization"]
 
-    C --> K[Kraken2 workflow]
-    K --> L[k-mer-based classification]
-    L --> M[Bracken abundance estimation]
-    M --> N[Kraken2 Krona visualization]
+    C --> K["Kraken2"]
+    K --> L["k-mer-based<br/>classification"]
+    L --> M["Bracken abundance<br/>estimation"]
+    M --> N["Krona visualization"]
 
-    J --> O[Comparison of taxonomic profiles]
+    J --> O["Comparison of<br/>taxonomic profiles"]
     N --> O
 ```
 ## Quality filtering
@@ -126,25 +127,17 @@ taxonomic labels.
 │
 ├── results/
 │   ├── quality_profiles/
-│   │   ├── raw_forward.png
-│   │   ├── raw_reverse.png
-│   │   ├── trimmed_forward.png
-│   │   └── trimmed_reverse.png
+│   │   ├── raw_forward.pdf
+│   │   ├── raw_reverse.pdf
+│   │   ├── trimmed_forward.pdf
+│   │   └── trimmed_reverse.pdf
 │   │
-│   ├── krona/
-│   │   ├── dada2_class_level.png
-│   │   ├── dada2_genus_level.png
-│   │   ├── kraken2_class_level.png
-│   │   └── kraken2_genus_level.png
-│   │
-│   └── tables/
-│       ├── dada2_taxonomic_abundance.tsv
-│       ├── kraken2_taxonomic_abundance.tsv
-│       └── class_level_comparison.csv
-│
-├── notebooks/
-│   └── taxonomic_comparison.ipynb
-│
+│   └── krona/
+│       ├── dada2_class_level.png
+│       ├── dada2_genus_level.png
+│       ├── kraken2_class_level.png
+│       └── kraken2_genus_level.png
+│   
 └── data/
     └── README.md
 ```
