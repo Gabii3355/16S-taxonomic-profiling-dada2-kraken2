@@ -111,6 +111,7 @@ taxonomic labels.
 - No biological replicates or statistical comparisons between sample groups were available.
   
 ## Repository
+```text
 16S-taxonomic-profiling-dada2-kraken2/
 │
 ├── README.md
@@ -146,3 +147,4 @@ taxonomic labels.
 │
 └── data/
     └── README.md
+```
