@@ -1,4 +1,4 @@
-# Comparative 16S rRNA Taxonomic Profiling Using DADA2 and Kraken2
+# NGS analysis: Comparative 16S rRNA Taxonomic Profiling Using DADA2 and Kraken2
 ## Overview
 
 This project presents a comparative analysis of 16S rRNA amplicon sequencing
